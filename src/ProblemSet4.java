@@ -30,9 +30,9 @@ public class ProblemSet4 {
         //ps.sum();
         //ps.reverse();
         //ps.digits();
-        ps.average();
-        ps.prime();
-        ps.fibonacci();
+        //ps.average();
+        //ps.prime();
+        //ps.fibonacci();
         ps.factors();
         ps.mario();
         ps.luigi();
@@ -153,7 +153,7 @@ public class ProblemSet4 {
         //Required Space
         System.out.print("\n");
         //Execution --> While user input is false, the value is recorded, as well as how many values.
-        //As soon as a negative integer is entered, the while loop ends and the average is then calculated. 
+        //As soon as a negative integer is entered, the while loop ends and the average is then calculated.
         while (isNegative == false) {
           System.out.print("Non-negative integer: ");
           negativeInteger = in.nextLong();
@@ -175,6 +175,32 @@ public class ProblemSet4 {
      */
 
     public void prime() {
+      //Intializing Variables
+      long nonNegativeInteger = -1;
+      boolean isPrime = true;
+      //Required Space
+      System.out.print("\n");
+      while (nonNegativeInteger < 0){
+        System.out.print("Non-negative integer: ");
+        nonNegativeInteger = in.nextLong();
+      }
+
+      if (nonNegativeInteger == 0 || nonNegativeInteger == 1){
+        isPrime = false;
+      } else {
+        for (int x = 2; x < nonNegativeInteger; x++){
+          if (nonNegativeInteger % x == 0){
+            isPrime = false;
+          }
+        }
+      }
+      //Required Space
+      System.out.print("\n");
+      if (!isPrime){
+        System.out.println("Not prime.");
+      } else {
+        System.out.println("Prime.");
+      }
 
     }
 
@@ -186,7 +212,24 @@ public class ProblemSet4 {
      */
 
     public void fibonacci() {
+      //Initializing Variables
+      int fibonacciNumber = -1;
+      int integer1 = 0;
+      int integer2 = 1;
+      int integer3 = 0;
+      //Required Space
+      System.out.print("\n");
+      while (fibonacciNumber < 1 || fibonacciNumber > 92){
+        System.out.print("Positive integer: ");
+        fibonacciNumber = in.nextInt();
+      }
 
+      for (int x = 1; x < fibonacciNumber; x++){
+        integer3 = integer1 + integer2;
+        integer1 = integer2;
+        integer2 = integer3;
+      }
+      System.out.println("\n" + integer3 + ".");
     }
 
     /*
