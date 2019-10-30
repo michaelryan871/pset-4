@@ -27,9 +27,9 @@ public class ProblemSet4 {
 
         // comment out or uncomment as needed
 
-        ps.sum();
-        ps.reverse();
-        ps.digits();
+        //ps.sum();
+        //ps.reverse();
+        //ps.digits();
         ps.average();
         ps.prime();
         ps.fibonacci();
@@ -90,7 +90,7 @@ public class ProblemSet4 {
           System.out.print("Positive integer: ");
           reverseInteger = in.nextInt();
         } while (reverseInteger < 1);
-        //Conversions
+        //Conversion (String)
         String reverseIntegerString = Long.toString(reverseInteger);
         int reverseStringLength = reverseIntegerString.length();
         // Required Space
@@ -113,8 +113,28 @@ public class ProblemSet4 {
      */
 
     public void digits() {
-
-    }
+        //Intializing Variables
+        int reverseInteger = 0;
+        long digit = 0;
+        long sum = 0;
+        // Required Space
+        System.out.print("\n");
+        do {
+          System.out.print("Positive integer: ");
+          reverseInteger = in.nextInt();
+        } while (reverseInteger < 1);
+        //Main "while" statement, is odd? if so... else... even.
+        while (reverseInteger > 0) {
+          digit = reverseInteger % 10;
+           if (digit % 2 != 0) {
+           sum += digit;
+           reverseInteger /= 10;
+        } else {
+          reverseInteger /= 10;
+        }
+      }
+      System.out.println("\n" + sum + ".");
+  }
 
     /*
      * Exercise 4.
@@ -125,7 +145,27 @@ public class ProblemSet4 {
      */
 
     public void average() {
-
+      //Initializing Variables
+        long negativeInteger = 0;
+        long value = 0;
+        double average = 0;
+        boolean isNegative = false;
+        //Required Space
+        System.out.print("\n");
+        //Execution --> While user input is false, the value is recorded, as well as how many values.
+        //As soon as a negative integer is entered, the while loop ends and the average is then calculated. 
+        while (isNegative == false) {
+          System.out.print("Non-negative integer: ");
+          negativeInteger = in.nextLong();
+          if (negativeInteger >= 0){
+            average = average + negativeInteger;
+            value++;
+          } else {
+            isNegative = true;
+             }
+           }
+           average = average / value;
+         System.out.println("\n" + String.format("%,.2f", average) + ".");
     }
 
     /*
