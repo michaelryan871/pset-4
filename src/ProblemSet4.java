@@ -33,8 +33,8 @@ public class ProblemSet4 {
         //ps.average();
         //ps.prime();
         //ps.fibonacci();
-        ps.factors();
-        ps.mario();
+        //ps.factors();
+        //ps.mario();
         ps.luigi();
         ps.credit();
 
@@ -239,9 +239,24 @@ public class ProblemSet4 {
      */
 
     public void factors() {
-
+      //Initializing Variables
+      long positiveInteger = 0;
+      //Required Space
+      System.out.print("\n");
+    while (positiveInteger < 1){
+      System.out.print("Positive integer: ");
+      positiveInteger = in.nextLong();
     }
 
+    System.out.print("\n1, " + positiveInteger);
+
+    for (int x = 2; x <= positiveInteger / x; x++){
+      if (positiveInteger % x == 0){
+        System.out.print(", " + x + ", " + positiveInteger / x);
+      }
+    }
+    System.out.print(".\n");
+  }
     /*
      * Exercise 8.
      *
@@ -250,7 +265,29 @@ public class ProblemSet4 {
      */
 
     public void mario() {
+      //Initializing Variables
+      int halfPyramidHeight = 0;
+      int halfPyramidLength = 0;
+      //Required Space
+      System.out.print("\n");
+      do {
+        System.out.print("Height: ");
+        halfPyramidHeight = in.nextInt();
+      } while (halfPyramidHeight < 1 || halfPyramidHeight > 24);
+      //Required Space
+      System.out.print("\n");
 
+      for (int x = 1; x <= halfPyramidHeight; x++){
+        for (int j = halfPyramidHeight - x; j > 0; j--){
+          System.out.print(" ");
+          halfPyramidLength++;
+        }
+        for (int k = halfPyramidHeight + 1 - halfPyramidLength; k > 0; k--){
+          System.out.print("#");
+        }
+        System.out.print("\n");
+        halfPyramidLength = 0;
+      }
     }
 
     /*
