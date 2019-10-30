@@ -27,14 +27,14 @@ public class ProblemSet4 {
 
         // comment out or uncomment as needed
 
-        //ps.sum();
-        //ps.reverse();
-        //ps.digits();
-        //ps.average();
-        //ps.prime();
-        //ps.fibonacci();
-        //ps.factors();
-        //ps.mario();
+        ps.sum();
+        ps.reverse();
+        ps.digits();
+        ps.average();
+        ps.prime();
+        ps.fibonacci();
+        ps.factors();
+        ps.mario();
         ps.luigi();
         ps.credit();
 
@@ -298,7 +298,37 @@ public class ProblemSet4 {
      */
 
     public void luigi() {
+      //Initializing Variables
+      int halfPyramidHeight = 0;
+      int halfPyramidLength = 0;
+      int pyramidReflection = 0;
+      //Required Space
+      System.out.print("\n");
+      do {
+        System.out.print("Height: ");
+        halfPyramidHeight = in.nextInt();
+      } while (halfPyramidHeight < 1 || halfPyramidHeight > 24);
+      //Required Space
+      System.out.print("\n");
 
+      for(int x = 1; x <=halfPyramidHeight; x++){
+        for(int j = halfPyramidHeight - x; j > 0; j--){
+          System.out.print(" ");
+          halfPyramidLength++;
+        }
+        for (int k = halfPyramidHeight + 1 - halfPyramidLength; k > 0; k--){
+          System.out.print("#");
+          pyramidReflection++;
+        }
+        System.out.print(" ");
+
+        for (int n = 0; n < pyramidReflection; n++){
+          System.out.print("#");
+        }
+        System.out.print("\n");
+        halfPyramidLength = 0;
+        pyramidReflection = 0;
+      }
     }
 
     /*
@@ -309,6 +339,62 @@ public class ProblemSet4 {
      */
 
     public void credit() {
+          //Initializing Variables
+            long cardNumber = 0;
+            int sumOne = 0;
+            int sumTwo = 0;
+            String sumString = "";
+            String cardType = "Invalid";
+            String cardString = "";
 
+            //Required Space
+            System.out.print("\n");
+
+            do {
+                System.out.print("Number: ");
+                cardNumber = in .nextLong();
+                cardString = Long.toString(cardNumber);
+            } while (cardNumber <= 0);
+
+
+            cardString = Long.toString(cardNumber);
+            for (int i = cardString.length() - 2; i > -1; i -= 2) {
+                sumString += Integer.toString(2 * Integer.parseInt(cardString.substring(i, i + 1)));
+            }
+
+            for (int i = sumString.length() - 1; i >= 0; i --) {
+                sumOne += Integer.parseInt(sumString.substring(i, i + 1));
+            }
+
+            for (int i = cardString.length() - 1; i >= 0; i -= 2 ) {
+                sumTwo += Integer.parseInt(cardString.substring(i, i + 1));
+            }
+
+            if (cardString.length() == 15 && (cardString.substring(0, 2).equals("37") ||
+              cardString.substring(0, 2).equals("34")) && ((sumOne + sumTwo) % 10 == 0)) {
+                cardType = "Amex";
+            } else if ((cardString.length() == 16 || cardString.length() == 13) && ((sumOne + sumTwo) % 10 == 0) &&
+              (cardString.substring(0, 1).equals("4"))) {
+                cardType = "Visa";
+            } else if (cardString.length() == 16 && ((sumOne + sumTwo) % 10 == 0)) {
+                switch (cardString.substring(0, 2)) {
+                    case "51":
+                        cardType = "Mastercard";
+                        break;
+                    case "52":
+                        cardType = "Mastercard";
+                        break;
+                    case "53":
+                        cardType = "Mastercard";
+                        break;
+                    case "54":
+                        cardType = "Mastercard";
+                        break;
+                    case "55":
+                        cardType = "Mastercard";
+                        break;
+                }
+            }
+            System.out.print("\n" + String.format("%s.\n", cardType));
+        }
     }
-}
